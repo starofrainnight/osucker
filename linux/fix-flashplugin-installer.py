@@ -36,6 +36,8 @@ def main():
         os.system('wget -O %s %s' % (file_path, url))
         os.system('dpkg-reconfigure %s' % component)
 
+        os.environ['LINES'] = "25"
+        os.environ['COLUMNS'] = "80"
         child = pexpect.spawn('dpkg-reconfigure flashplugin-installer')
         child.expect('Location to the local file')
         child.send('%s\t\r' % file_path)
