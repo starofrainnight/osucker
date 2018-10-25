@@ -36,6 +36,7 @@ def main():
         os.system('wget -O %s %s' % (file_path, url))
         os.system('dpkg-reconfigure %s' % component)
 
+        # dpkg-reconfigure required terminal size at lease 
         os.environ['LINES'] = "25"
         os.environ['COLUMNS'] = "80"
         child = pexpect.spawn('dpkg-reconfigure flashplugin-installer')
